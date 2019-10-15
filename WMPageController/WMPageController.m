@@ -88,6 +88,10 @@ static NSInteger const kWMControllerCountUndefined = -1;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(wm_growCachePolicyToHigh) object:nil];
 }
 
+- (UIView *)rootView {
+    return self.view;
+}
+
 - (void)forceLayoutSubviews {
     if (!self.childControllersCount) return;
     // 计算宽高及子控制器的视图frame
@@ -439,7 +443,7 @@ static NSInteger const kWMControllerCountUndefined = -1;
     if (@available(iOS 11.0, *)) {
         scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
-    [self.view addSubview:scrollView];
+    [self.rootView addSubview:scrollView];
     self.scrollView = scrollView;
     
     if (!self.navigationController) return;
@@ -470,7 +474,7 @@ static NSInteger const kWMControllerCountUndefined = -1;
     if (self.showOnNavigationBar && self.navigationController.navigationBar) {
         self.navigationItem.titleView = menuView;
     } else {
-        [self.view addSubview:menuView];
+        [self.rootView addSubview:menuView];
     }
     self.menuView = menuView;
 }
@@ -526,7 +530,7 @@ static NSInteger const kWMControllerCountUndefined = -1;
         [viewController setValue:self.values[index] forKey:self.keys[index]];
     }
     [self addChildViewController:viewController];
-    CGRect frame = self.childViewFrames.count ? [self.childViewFrames[index] CGRectValue] : self.view.frame;
+    CGRect frame = self.childViewFrames.count ? [self.childViewFrames[index] CGRectValue] : self.rootView.frame;
     viewController.view.frame = frame;
     [viewController didMoveToParentViewController:self];
     [self.scrollView addSubview:viewController.view];
@@ -621,7 +625,7 @@ static NSInteger const kWMControllerCountUndefined = -1;
         if (self.selectIndex != 0) {
             [self.menuView selectItemAtIndex:self.selectIndex];
         }
-        [self.view bringSubviewToFront:self.menuView];
+        [self.rootView bringSubviewToFront:self.menuView];
     }
 }
 
@@ -683,7 +687,7 @@ static NSInteger const kWMControllerCountUndefined = -1;
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.rootView.backgroundColor = [UIColor whiteColor];
     if (!self.childControllersCount) return;
     [self wm_calculateSize];
     [self wm_addScrollView];

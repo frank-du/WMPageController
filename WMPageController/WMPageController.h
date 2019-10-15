@@ -150,6 +150,10 @@ extern NSString *const WMControllerDidFullyDisplayedNotification;
  */
 @property (nonatomic, nullable, copy) NSArray<Class> *viewControllerClasses;
 
+
+/// 根部视图
+@property (nonatomic, strong, readonly) UIView *rootView;
+
 /**
  *  各个控制器标题
  *  Titles of view controllers in page controller.
