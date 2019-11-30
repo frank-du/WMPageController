@@ -283,8 +283,8 @@
 				TargetAttributes = {
 					F00251231F2358E70045B118 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = N9D9Y52FAG;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = KJ7B9R8CS3;
+						ProvisioningStyle = Manual;
 					};
 					F002513C1F2358E70045B118 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -303,6 +303,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -572,11 +573,13 @@
 			baseConfigurationReference = C0246FAD39EBD7B70B357817 /* Pods-StickyExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N9D9Y52FAG;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KJ7B9R8CS3;
 				INFOPLIST_FILE = StickyExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tpphha.StickyExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Dev-Wildcard";
 			};
 			name = Debug;
 		};
@@ -585,11 +588,13 @@
 			baseConfigurationReference = 34AC57DD9EDC00C12494A0E9 /* Pods-StickyExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N9D9Y52FAG;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KJ7B9R8CS3;
 				INFOPLIST_FILE = StickyExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tpphha.StickyExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Dev-Wildcard";
 			};
 			name = Release;
 		};

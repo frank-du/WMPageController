@@ -796,6 +796,15 @@ static NSInteger const kWMControllerCountUndefined = -1;
 #pragma mark - WMMenuView Delegate
 - (void)menuView:(WMMenuView *)menu didSelectedIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex {
     if (!_hasInited) return;
+    
+    if (index == currentIndex) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pageController:didSelectedCurrentMenuItemIndex:)]) {
+            [self.delegate pageController:self didSelectedCurrentMenuItemIndex:currentIndex];
+        }
+        
+        return;
+    }
+    
     _selectIndex = (int)index;
     _startDragging = NO;
     CGPoint targetP = CGPointMake(_contentViewFrame.size.width * index, 0);
