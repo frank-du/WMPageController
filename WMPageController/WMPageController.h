@@ -129,13 +129,12 @@ extern NSString *const WMControllerDidFullyDisplayedNotification;
  */
 - (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info;
 
-
-/// 点击当前菜单项时触发
+/// 点击菜单项时触发
 /// @param pageController The parent controller (WMPageController)
-/// @param index 当前索引
+/// @param index 点击的索引
+/// @param currentIndex 当前索引
 /// @author frank-du
-- (void)pageController:(WMPageController *)pageController didSelectedCurrentMenuItemIndex:(NSInteger)index;
-
+- (void)pageController:(WMPageController *)pageController didSelectedMenuItemIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex;
 
 @end
 

@@ -797,11 +797,12 @@ static NSInteger const kWMControllerCountUndefined = -1;
 - (void)menuView:(WMMenuView *)menu didSelectedIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex {
     if (!_hasInited) return;
     
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pageController:didSelectedMenuItemIndex:currentIndex:)]) {
+        [self.delegate pageController:self didSelectedMenuItemIndex:index currentIndex:currentIndex];
+    }
+    
+    // 索引不变不需要执行后面代码
     if (index == currentIndex) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(pageController:didSelectedCurrentMenuItemIndex:)]) {
-            [self.delegate pageController:self didSelectedCurrentMenuItemIndex:currentIndex];
-        }
-        
         return;
     }
     
